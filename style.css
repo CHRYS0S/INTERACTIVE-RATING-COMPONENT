@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+:root {
+  --p-orange: hsl(25, 97%, 53%);
+
+  --n-white: hsl(0, 0%, 100%);
+  --n-lightGray: hsl(217, 12%, 63%);
+  --n-mediumGray: hsl(216, 12%, 54%);
+  --n-darkBlue: hsl(213, 19%, 18%);
+  --n-veryDarkblue: hsl(216, 12%, 8%);
+  --clr-gradient: linear-gradient(
+    to bottom,
+    hsla(215, 20%, 17%, 1),
+    hsla(215, 24%, 12%, 1)
+  );
+
+  --fontSize: 0.9375rem;
+
+  --f-regular: 400;
+  --f-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: hidden;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+body {
+  font-family: "Overpass", sans-serif;
+  background-color: var(--n-veryDarkblue);
+  display: grid;
+  place-items: center;
+  min-block-size: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* TYPOGRAPHY */
+h2 {
+  color: var(--n-white);
+  font-size: clamp(24px, 5.5vw, 28px);
+  line-height: 1.25;
+  font-weight: 700;
+  margin-bottom: 0.4375rem;
+}
+
+p {
+  color: var(--n-lightGray);
+  font-size: var(--fontSize);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* LAYOUT */
+main {
+  background-image: var(--clr-gradient);
+  max-width: 25.75rem;
+  width: calc(100% - 3rem);
+  height: 26rem;
+  border-radius: 1.875rem;
+  padding: clamp(1.5rem, 5vw, 2rem);
+}
+
+figure {
+  --size: clamp(2.5rem, 6vw, 3rem);
+
+  width: var(--size);
+  aspect-ratio: 1;
+  background-color: var(--n-darkBlue);
+  margin: 0 0 1.875rem 0;
+  display: grid;
+  place-items: center;
+  border-radius: var(--size);
+}
+
+/* FORM INPUT ELEMENTS */
+.button {
+  background-color: var(--p-orange);
+  border: unset;
+  color: var(--n-white);
+  text-transform: uppercase;
+  width: 100%;
+  height: 2.8125rem;
+  border-radius: 2.8125rem;
+  cursor: pointer;
+  appearance: none;
+  font-weight: var(--f-bold);
+  font-size: var(--fontSize);
+  line-height: 1.1875rem;
+  letter-spacing: 0.125rem;
+  font-family: "Overpass", sans-serif;
+}
+
+.button:is(:hover, :focus-visible) {
+  background-color: var(--n-white);
+  color: var(--p-orange);
+  outline: none;
+}
+
+.rating-group {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1.5rem 2rem;
+}
+
+.radio-input .control {
+  --size: clamp(2.625rem, 10vw, 3.1875rem);
+
+  display: block;
+  width: var(--size);
+  aspect-ratio: 1;
+  background-color: var(--n-darkBlue);
+  display: grid;
+  font-weight: 700;
+  font-size: 1rem;
+  place-items: center;
+  border-radius: var(--size);
+  color: var(--n-mediumGray);
+  cursor: pointer;
+}
+
+.radio-input input:checked + .control {
+  background-color: var(--n-mediumGray);
+  color: var(--n-white);
+}
+
+.radio-input:hover .control,
+.radio-input input:focus + .control {
+  background-color: var(--p-orange);
+  color: var(--n-white);
+}
+
+.rating-result {
+  background-color: var(--n-darkBlue);
+  color: var(--p-orange);
+  height: 2rem;
+  border-radius: 2rem;
+  line-height: 2rem;
+  width: max-content;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  margin-block: 2rem;
+}
+
+.illustration {
+  margin-inline: auto;
+}
+
+p {
+  margin-right: 8px;
+  margin-bottom: 13px;
+}
